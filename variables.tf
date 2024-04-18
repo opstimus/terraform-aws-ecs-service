@@ -73,11 +73,11 @@ variable "enable_memory_alarm" {
 }
 
 variable "deployment_maximum_percent" {
-  type = number
+  type    = number
   default = true
 }
 
-variable "deployment_minimum_healthy_percent"{
-  type = number
+variable "deployment_minimum_healthy_percent" {
+  type    = number
   default = true
 }
