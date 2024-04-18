@@ -6,7 +6,9 @@ resource "aws_ecs_service" "main" {
   launch_type            = "FARGATE"
   enable_execute_command = true
   wait_for_steady_state  = true
-
+  deployment_maximum_percent = var.deployment_maximum_percent
+  deployment_minimum_healthy_percent = var.deployment_minimum_healthy_percent
+  
   load_balancer {
     target_group_arn = var.target_group_arn
     container_name   = var.container_name
