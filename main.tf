@@ -3,7 +3,7 @@ resource "aws_ecs_service" "main" {
   cluster                            = var.cluster_arn
   task_definition                    = var.task_definition
   desired_count                      = var.desired_count
-  launch_type                        = "FARGATE"
+  # launch_type                        = "FARGATE"
   enable_execute_command             = true
   wait_for_steady_state              = true
   deployment_maximum_percent         = var.deployment_maximum_percent
