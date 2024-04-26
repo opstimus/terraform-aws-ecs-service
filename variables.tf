@@ -81,3 +81,13 @@ variable "deployment_maximum_percent" {
   type    = number
   default = 200
 }
+
+variable "capacity_provider_base" {
+  type    = number
+  default = 1
+}
+
+variable "capacity_provider_weight" {
+  type    = number
+  default = 1
+}

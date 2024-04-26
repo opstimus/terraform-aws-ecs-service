@@ -28,6 +28,12 @@ resource "aws_ecs_service" "main" {
   lifecycle {
     ignore_changes = [desired_count]
   }
+
+  capacity_provider_strategy {
+    base              = var.capacity_provider_base
+    capacity_provider = "FARGATE"
+    weight            = var.capacity_provider_weight
+  }
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
