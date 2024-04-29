@@ -30,9 +30,16 @@ resource "aws_ecs_service" "main" {
   }
 
   capacity_provider_strategy {
-    base              = var.capacity_provider_base
+    # base              = var.capacity_provider_base
     capacity_provider = "FARGATE_SPOT"
-    weight            = var.capacity_provider_weight
+    weight            = var.capacity_provider_fargate_spot_weight
+  }
+
+
+  capacity_provider_strategy {
+    # base              = var.capacity_provider_base
+    capacity_provider = "FARGATE"
+    weight            = var.capacity_provider_fargate_weight
   }
 }
 
