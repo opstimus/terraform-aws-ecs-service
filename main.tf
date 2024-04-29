@@ -1,9 +1,8 @@
 resource "aws_ecs_service" "main" {
-  name            = "${var.project}-${var.environment}-${var.service}"
-  cluster         = var.cluster_arn
-  task_definition = var.task_definition
-  desired_count   = var.desired_count
-  # launch_type                      = "FARGATE"
+  name                               = "${var.project}-${var.environment}-${var.service}"
+  cluster                            = var.cluster_arn
+  task_definition                    = var.task_definition
+  desired_count                      = var.desired_count
   enable_execute_command             = true
   wait_for_steady_state              = true
   deployment_maximum_percent         = var.deployment_maximum_percent
@@ -30,14 +29,11 @@ resource "aws_ecs_service" "main" {
   }
 
   capacity_provider_strategy {
-    # base              = var.capacity_provider_base
     capacity_provider = "FARGATE_SPOT"
     weight            = var.capacity_provider_fargate_spot_weight
   }
 
-
   capacity_provider_strategy {
-    # base              = var.capacity_provider_base
     capacity_provider = "FARGATE"
     weight            = var.capacity_provider_fargate_weight
   }
