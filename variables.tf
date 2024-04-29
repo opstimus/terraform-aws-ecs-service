@@ -94,5 +94,5 @@ variable "capacity_provider_fargate_weight" {
 
 variable "capacity_provider_fargate_spot_weight" {
   type    = number
-  default = 1
+  default = 0
 }
