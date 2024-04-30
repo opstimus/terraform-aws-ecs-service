@@ -37,7 +37,6 @@ resource "aws_ecs_service" "main" {
     capacity_provider = "FARGATE"
     weight            = var.capacity_provider_fargate_weight
     base              = var.capacity_provider_fargate_base
-  }
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
