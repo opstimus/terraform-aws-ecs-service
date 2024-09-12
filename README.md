@@ -56,25 +56,25 @@ This Terraform module creates an ECS Service with optional CloudWatch Alarms for
 
 ```hcl
 module "ecs_service" {
-  source = "github.com/opstimus/terraform-aws-ecs-service?ref=v<RELEASE>"
+  source              = "github.com/opstimus/terraform-aws-ecs-service?ref=v<RELEASE>"
 
-  project           = "example-project"
-  environment       = "dev"
-  service           = "api"
-  cluster_name      = "example-cluster"
-  cluster_arn       = "arn:aws:ecs:region:account-id:cluster/example-cluster"
-  task_definition   = "arn:aws:ecs:region:account-id:task/example-task"
-  desired_count     = 2
-  target_group_arn  = "arn:aws:elasticloadbalancing:region:account-id:targetgroup/example-target"
-  container_name    = "example-container"
-  container_port    = 80
-  subnets           = ["subnet-abc", "subnet-def"]
-  security_group    = ["sg-12345"]
-  assign_public_ip  = false
+  project             = "example-project"
+  environment         = "dev"
+  service             = "api"
+  cluster_name        = "example-cluster"
+  cluster_arn         = "arn:aws:ecs:region:account-id:cluster/example-cluster"
+  task_definition     = "arn:aws:ecs:region:account-id:task/example-task"
+  desired_count       = 2
+  target_group_arn    = "arn:aws:elasticloadbalancing:region:account-id:targetgroup/example-target"
+  container_name      = "example-container"
+  container_port      = 80
+  subnets             = ["subnet-abc", "subnet-def"]
+  security_group      = ["sg-12345"]
+  assign_public_ip    = false
 
-  enable_cpu_alarm  = true
+  enable_cpu_alarm    = true
   enable_memory_alarm = true
-  alarm_sns_arn     = "arn:aws:sns:region:account-id:example-topic"
+  alarm_sns_arn       = "arn:aws:sns:region:account-id:example-topic"
 }
 ```
 
