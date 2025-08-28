@@ -13,6 +13,12 @@ variable "service" {
   description = "Service name | i.e api"
 }
 
+variable "workload" {
+  type        = string
+  description = "Workload tag"
+  default     = "default"
+}
+
 variable "cluster_name" {
   type = string
 }

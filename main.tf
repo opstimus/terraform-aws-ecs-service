@@ -38,6 +38,11 @@ resource "aws_ecs_service" "main" {
     weight            = var.capacity_provider_fargate_weight
     base              = var.capacity_provider_fargate_base
   }
+
+  tags = {
+    Name     = "${var.project}-${var.environment}-${var.service}"
+    Workload = var.workload
+  }
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
@@ -60,6 +65,11 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   dimensions = {
     ClusterName = var.cluster_name
     ServiceName = aws_ecs_service.main.name
+  }
+
+  tags = {
+    Name     = "${var.project}-${var.environment}-cpu-high"
+    Workload = var.workload
   }
 }
 
@@ -84,6 +94,11 @@ resource "aws_cloudwatch_metric_alarm" "cpu_critical" {
     ClusterName = var.cluster_name
     ServiceName = aws_ecs_service.main.name
   }
+
+  tags = {
+    Name     = "${var.project}-${var.environment}-cpu-critical"
+    Workload = var.workload
+  }
 }
 
 resource "aws_cloudwatch_metric_alarm" "memory_high" {
@@ -107,6 +122,11 @@ resource "aws_cloudwatch_metric_alarm" "memory_high" {
     ClusterName = var.cluster_name
     ServiceName = aws_ecs_service.main.name
   }
+
+  tags = {
+    Name     = "${var.project}-${var.environment}-memory-high"
+    Workload = var.workload
+  }
 }
 
 resource "aws_cloudwatch_metric_alarm" "memory_critical" {
@@ -129,5 +149,10 @@ resource "aws_cloudwatch_metric_alarm" "memory_critical" {
   dimensions = {
     ClusterName = var.cluster_name
     ServiceName = aws_ecs_service.main.name
+  }
+
+  tags = {
+    Name     = "${var.project}-${var.environment}-memory-critical"
+    Workload = var.workload
   }
 }
