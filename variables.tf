@@ -104,6 +104,6 @@ variable "capacity_provider_fargate_spot_weight" {
 }
 
 variable "force_new_deployment" {
-  type        = bool
-  default     = false
+  type    = bool
+  default = false
 }
