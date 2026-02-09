@@ -9,14 +9,14 @@ This Terraform module creates an ECS Service with optional CloudWatch Alarms for
 | Name      | Version  |
 |-----------|----------|
 | terraform | >= 1.3.0 |
-| aws       | >= 4.0   |
+| aws       | >= 6.0   |
 | external  | >= 2.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws  | >= 4.0  |
+| aws  | >= 6.0  |
 
 ## Inputs
 
